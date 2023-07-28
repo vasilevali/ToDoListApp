@@ -99,11 +99,9 @@
 		247D0EE92A7440B600AD8C0A /* ToDoListApp */ = {
 			isa = PBXGroup;
 			children = (
-				247D0EEA2A7440B600AD8C0A /* AppDelegate.swift */,
-				247D0EEC2A7440B600AD8C0A /* SceneDelegate.swift */,
-				247D0EEE2A7440B600AD8C0A /* MainViewController.swift */,
-				247D0EF62A7440BB00AD8C0A /* Assets.xcassets */,
-				247D0EF82A7440BB00AD8C0A /* LaunchScreen.storyboard */,
+				33FAE2A82A74496200DD5502 /* Core */,
+				33FAE2A72A74495B00DD5502 /* Resources */,
+				33FAE2A62A74495400DD5502 /* Screens */,
 				247D0EFB2A7440BB00AD8C0A /* Info.plist */,
 				247D0EF32A7440B600AD8C0A /* ToDoListApp.xcdatamodeld */,
 			);
@@ -125,6 +123,40 @@
 				247D0F102A7440BC00AD8C0A /* ToDoListAppUITestsLaunchTests.swift */,
 			);
 			path = ToDoListAppUITests;
+			sourceTree = "<group>";
+		};
+		33FAE2A62A74495400DD5502 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				33FAE2A92A74496E00DD5502 /* Main */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		33FAE2A72A74495B00DD5502 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				247D0EEA2A7440B600AD8C0A /* AppDelegate.swift */,
+				247D0EEC2A7440B600AD8C0A /* SceneDelegate.swift */,
+				247D0EF82A7440BB00AD8C0A /* LaunchScreen.storyboard */,
+				247D0EF62A7440BB00AD8C0A /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		33FAE2A82A74496200DD5502 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		33FAE2A92A74496E00DD5502 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				247D0EEE2A7440B600AD8C0A /* MainViewController.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
