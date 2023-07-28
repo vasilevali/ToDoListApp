@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  ToDoListApp
 //
-//  Created by мак on 28.07.2023.
+//  Created by Alice on 28.07.2023.
 //
 
 import UIKit
