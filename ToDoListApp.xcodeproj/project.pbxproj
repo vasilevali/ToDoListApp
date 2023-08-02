@@ -16,7 +16,7 @@
 		247D0F052A7440BC00AD8C0A /* ToDoListAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D0F042A7440BC00AD8C0A /* ToDoListAppTests.swift */; };
 		247D0F0F2A7440BC00AD8C0A /* ToDoListAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D0F0E2A7440BC00AD8C0A /* ToDoListAppUITests.swift */; };
 		247D0F112A7440BC00AD8C0A /* ToDoListAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D0F102A7440BC00AD8C0A /* ToDoListAppUITestsLaunchTests.swift */; };
-		247D0F1E2A757F4D00AD8C0A /* DescriptionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D0F1D2A757F4D00AD8C0A /* DescriptionLabel.swift */; };
+		247D0F1E2A757F4D00AD8C0A /* InformationBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D0F1D2A757F4D00AD8C0A /* InformationBlockView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +50,7 @@
 		247D0F0A2A7440BC00AD8C0A /* ToDoListAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToDoListAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		247D0F0E2A7440BC00AD8C0A /* ToDoListAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListAppUITests.swift; sourceTree = "<group>"; };
 		247D0F102A7440BC00AD8C0A /* ToDoListAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		247D0F1D2A757F4D00AD8C0A /* DescriptionLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionLabel.swift; sourceTree = "<group>"; };
+		247D0F1D2A757F4D00AD8C0A /* InformationBlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationBlockView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,7 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				247D0EEE2A7440B600AD8C0A /* MainViewController.swift */,
-				247D0F1D2A757F4D00AD8C0A /* DescriptionLabel.swift */,
+				247D0F1D2A757F4D00AD8C0A /* InformationBlockView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -294,7 +294,7 @@
 			files = (
 				247D0EEF2A7440B600AD8C0A /* MainViewController.swift in Sources */,
 				247D0EEB2A7440B600AD8C0A /* AppDelegate.swift in Sources */,
-				247D0F1E2A757F4D00AD8C0A /* DescriptionLabel.swift in Sources */,
+				247D0F1E2A757F4D00AD8C0A /* InformationBlockView.swift in Sources */,
 				247D0EED2A7440B600AD8C0A /* SceneDelegate.swift in Sources */,
 				247D0EF52A7440B600AD8C0A /* ToDoListApp.xcdatamodeld in Sources */,
 			);

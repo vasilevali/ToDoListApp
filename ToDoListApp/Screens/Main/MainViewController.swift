@@ -14,8 +14,8 @@ final class MainViewController: UIViewController {
     private let descriptionLabel = UILabel()
     private let addButton = UIButton()
     private let informationStackView = UIStackView()
-    private let createdTasks = DescriptionLabel()
-    private let completedTasks = DescriptionLabel()
+    private let createdTasksView = InformationBlockView()
+    private let completedTasksView = InformationBlockView()
     
     // MARK: - Lifecycle
     
@@ -29,10 +29,10 @@ final class MainViewController: UIViewController {
     // MARK: - Private
     
     private func addViews() {
-        [titleUserLabel, descriptionLabel, addButton, informationStackView, informationStackView, createdTasks].forEach { view in
+        [titleUserLabel, descriptionLabel, addButton, informationStackView, informationStackView, createdTasksView].forEach { view in
             view.addSubview(view)
         }
-        [createdTasks, completedTasks].forEach { view in
+        [createdTasksView, completedTasksView].forEach { view in
             informationStackView.addArrangedSubview(view)
         }
     }
@@ -52,22 +52,17 @@ final class MainViewController: UIViewController {
         addButton.layer.cornerRadius = 15
         addButton.backgroundColor = UIColor(named: "Color")
         addButton.setImage(UIImage(named: "PlusImage"), for: .normal)
-        addButton.translatesAutoresizingMaskIntoConstraints = false
         
-//        firstCube.amoutTasks.text  = "0"
-//        firstCube.tasks.text = "Task created"
-//        secondtCube.amoutTasks.text = "0"
-//        secondtCube.tasks.text = "Task left"
-        
-        createdTasks.translatesAutoresizingMaskIntoConstraints = false
-        completedTasks.translatesAutoresizingMaskIntoConstraints = false
+        createdTasksView.translatesAutoresizingMaskIntoConstraints = false
+        completedTasksView.translatesAutoresizingMaskIntoConstraints = false
         informationStackView.translatesAutoresizingMaskIntoConstraints = false
         informationStackView.distribution = .fillEqually
+        addButton.translatesAutoresizingMaskIntoConstraints = false
+        titleUserLabel.translatesAutoresizingMaskIntoConstraints = false
+        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
     }
     
     private func configureLayout() {
-        titleUserLabel.translatesAutoresizingMaskIntoConstraints = false
-        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             titleUserLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32),
             titleUserLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
