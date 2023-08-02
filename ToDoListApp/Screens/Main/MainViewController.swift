@@ -7,16 +7,15 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+final class MainViewController: UIViewController {
     
     // UI
-    
     private let titleUserLabel = UILabel()
     private let descriptionLabel = UILabel()
     private let addButton = UIButton()
-    private let stackView = UIStackView()
-    private let firstCube = TwoLabelsView()
-    private let secondtCube = TwoLabelsView()
+    private let informationStackView = UIStackView()
+    private let createdTasks = DescriptionLabel()
+    private let completedTasks = DescriptionLabel()
     
     // MARK: - Lifecycle
     
@@ -27,51 +26,48 @@ class MainViewController: UIViewController {
         configureLayout()
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .white
-    }
-    
     // MARK: - Private
     
     private func addViews() {
-        view.addSubview(titleUserLabel)
-        view.addSubview(descriptionLabel)
-        view.addSubview(addButton)
-        view.addSubview(stackView)
-        stackView.addArrangedSubview(firstCube)
-        stackView.addArrangedSubview(secondtCube)
+        [titleUserLabel, descriptionLabel, addButton, informationStackView, informationStackView, createdTasks].forEach { view in
+            view.addSubview(view)
+        }
+        [createdTasks, completedTasks].forEach { view in
+            informationStackView.addArrangedSubview(view)
+        }
     }
     
     private func configureAppearance() {
+        view.backgroundColor = .white
+        
         titleUserLabel.font = .systemFont(ofSize: 30, weight: .bold)
         titleUserLabel.textColor = .black
         titleUserLabel.text = "Hey!"
-        titleUserLabel.translatesAutoresizingMaskIntoConstraints = false
         
         descriptionLabel.font = .systemFont(ofSize: 18, weight: .light)
         descriptionLabel.textColor = .gray
         descriptionLabel.numberOfLines = 0
         descriptionLabel.text = "You have 1 task"
-        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         
         addButton.layer.cornerRadius = 15
         addButton.backgroundColor = UIColor(named: "Color")
         addButton.setImage(UIImage(named: "PlusImage"), for: .normal)
         addButton.translatesAutoresizingMaskIntoConstraints = false
         
-        firstCube.amoutTasks.text  = "0"
-        firstCube.tasks.text = "Task created"
-        secondtCube.amoutTasks.text = "0"
-        secondtCube.tasks.text = "Task left"
+//        firstCube.amoutTasks.text  = "0"
+//        firstCube.tasks.text = "Task created"
+//        secondtCube.amoutTasks.text = "0"
+//        secondtCube.tasks.text = "Task left"
         
-        firstCube.translatesAutoresizingMaskIntoConstraints = false
-        secondtCube.translatesAutoresizingMaskIntoConstraints = false
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.distribution = .fillEqually
+        createdTasks.translatesAutoresizingMaskIntoConstraints = false
+        completedTasks.translatesAutoresizingMaskIntoConstraints = false
+        informationStackView.translatesAutoresizingMaskIntoConstraints = false
+        informationStackView.distribution = .fillEqually
     }
     
     private func configureLayout() {
+        titleUserLabel.translatesAutoresizingMaskIntoConstraints = false
+        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             titleUserLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32),
             titleUserLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
@@ -87,9 +83,9 @@ class MainViewController: UIViewController {
             addButton.heightAnchor.constraint(equalToConstant: 40),
             addButton.widthAnchor.constraint(equalToConstant: 40),
 
-            stackView.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 16),
-            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 48),
-            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -48)
+            informationStackView.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 16),
+            informationStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 48),
+            informationStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -48)
         ])
     }
 }
