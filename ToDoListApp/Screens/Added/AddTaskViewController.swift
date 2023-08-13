@@ -7,19 +7,13 @@
 
 import UIKit
 
-// MARK: - Constants
-private enum Constants {
-    static let buttonWidth: CGFloat = 40
-    static let buttoHeight: CGFloat = 40
-}
-
 // MARK: - AddedTaskViewController
 
-final class AddedTaskViewController: UIViewController {
+final class AddTaskViewController: UIViewController {
  
-    //UI
+    // UI
     private let addTaskTextField = UITextField()
-    private let choorseDateLabel = UILabel()
+    private let chooseDateLabel = UILabel()
     private let timeExecutionDatePicker = UIDatePicker()
     private let descriptionLabel = UILabel()
     private let descriptionTextField = UITextField()
@@ -38,7 +32,7 @@ final class AddedTaskViewController: UIViewController {
     // MARK: - Private
     
     private func addViews() {
-        [addTaskTextField, timeExecutionDatePicker, addTaskButton, choorseDateLabel, descriptionLabel, descriptionTextField].forEach { subview in
+        [addTaskTextField, timeExecutionDatePicker, addTaskButton, chooseDateLabel, descriptionLabel, descriptionTextField].forEach { subview in
             view.addSubview(subview)
         }
     }
@@ -49,8 +43,8 @@ final class AddedTaskViewController: UIViewController {
         addTaskTextField.placeholder = "Add a task"
         addTaskTextField.font = Assets.Fonts.titleFont
         
-        choorseDateLabel.text = "Choose date"
-        choorseDateLabel.textColor = .gray
+        chooseDateLabel.text = "Choose date"
+        chooseDateLabel.textColor = .gray
         
         timeExecutionDatePicker.preferredDatePickerStyle = .automatic
         
@@ -67,7 +61,7 @@ final class AddedTaskViewController: UIViewController {
     }
     
     private func configureLayout() {
-        [addTaskTextField, timeExecutionDatePicker, addTaskButton, choorseDateLabel, descriptionLabel, descriptionTextField].forEach {
+        [addTaskTextField, timeExecutionDatePicker, addTaskButton, chooseDateLabel, descriptionLabel, descriptionTextField].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
         NSLayoutConstraint.activate([
@@ -75,11 +69,11 @@ final class AddedTaskViewController: UIViewController {
             addTaskTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: .baseMargin),
             addTaskTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -.smallMargin),
             
-            choorseDateLabel.topAnchor.constraint(equalTo: addTaskTextField.bottomAnchor, constant: .baseMargin),
-            choorseDateLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: .largeMargin),
-            choorseDateLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -.largeMargin),
+            chooseDateLabel.topAnchor.constraint(equalTo: addTaskTextField.bottomAnchor, constant: .baseMargin),
+            chooseDateLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: .largeMargin),
+            chooseDateLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -.largeMargin),
             
-            timeExecutionDatePicker.topAnchor.constraint(equalTo: choorseDateLabel.bottomAnchor, constant: .compactMargin),
+            timeExecutionDatePicker.topAnchor.constraint(equalTo: chooseDateLabel.bottomAnchor, constant: .compactMargin),
             timeExecutionDatePicker.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             descriptionLabel.topAnchor.constraint(equalToSystemSpacingBelow: timeExecutionDatePicker.bottomAnchor, multiplier: .smallMargin),
