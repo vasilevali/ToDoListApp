@@ -1,0 +1,100 @@
+//
+//  AddedTaskViewController.swift
+//  ToDoListApp
+//
+//  Created by Alice on 05.08.2023.
+//
+
+import UIKit
+
+// MARK: - Constants
+private enum Constants {
+    static let buttonWidth: CGFloat = 40
+    static let buttoHeight: CGFloat = 40
+}
+
+// MARK: - AddedTaskViewController
+
+final class AddedTaskViewController: UIViewController {
+ 
+    //UI
+    private let addTaskTextField = UITextField()
+    private let choorseDateLabel = UILabel()
+    private let timeExecutionDatePicker = UIDatePicker()
+    private let descriptionLabel = UILabel()
+    private let descriptionTextField = UITextField()
+    private let addTaskButton = UIButton()
+    
+    
+    // MARK: - Lifecycle
+    
+    override func loadView() {
+        super.loadView()
+        addViews()
+        configureAppearance()
+        configureLayout()
+    }
+    
+    // MARK: - Private
+    
+    private func addViews() {
+        [addTaskTextField, timeExecutionDatePicker, addTaskButton, choorseDateLabel, descriptionLabel, descriptionTextField].forEach { subview in
+            view.addSubview(subview)
+        }
+    }
+    
+    private func configureAppearance() {
+        view.backgroundColor = .white
+        
+        addTaskTextField.placeholder = "Add a task"
+        addTaskTextField.font = Assets.Fonts.titleFont
+        
+        choorseDateLabel.text = "Choose date"
+        choorseDateLabel.textColor = .gray
+        
+        timeExecutionDatePicker.preferredDatePickerStyle = .automatic
+        
+        descriptionLabel.text = "Write description"
+        descriptionLabel.textColor = .gray
+        
+        descriptionTextField.placeholder = "Add description"
+        descriptionTextField.clearButtonMode = .always
+        descriptionTextField.font = Assets.Fonts.mediumBoldFont
+        
+        addTaskButton.backgroundColor = .lightGray
+        addTaskButton.layer.cornerRadius = .tinyRadius
+        addTaskButton.setTitle("Add task!", for: .normal)
+    }
+    
+    private func configureLayout() {
+        [addTaskTextField, timeExecutionDatePicker, addTaskButton, choorseDateLabel, descriptionLabel, descriptionTextField].forEach {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+        }
+        NSLayoutConstraint.activate([
+            addTaskTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: .extraLargeMargin),
+            addTaskTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: .baseMargin),
+            addTaskTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -.smallMargin),
+            
+            choorseDateLabel.topAnchor.constraint(equalTo: addTaskTextField.bottomAnchor, constant: .baseMargin),
+            choorseDateLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: .largeMargin),
+            choorseDateLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -.largeMargin),
+            
+            timeExecutionDatePicker.topAnchor.constraint(equalTo: choorseDateLabel.bottomAnchor, constant: .compactMargin),
+            timeExecutionDatePicker.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            descriptionLabel.topAnchor.constraint(equalToSystemSpacingBelow: timeExecutionDatePicker.bottomAnchor, multiplier: .smallMargin),
+            descriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: .largeMargin),
+            descriptionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: .largeMargin),
+            
+            descriptionTextField.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: .smallMargin),
+            descriptionTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: .largeMargin),
+            descriptionTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -.largeMargin),
+
+            
+            addTaskButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -.extraLargeMargin),
+            addTaskButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: .extraLargeMargin),
+            addTaskButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -.extraLargeMargin)
+            
+        ])
+    }
+}
