@@ -21,7 +21,12 @@ final class MainViewController: UIViewController {
     // UI
     private let titleUserLabel = UILabel()
     private let descriptionLabel = UILabel()
-    private let addButton = UIButton()
+    private let addButton: UIButton = {
+        let button = UIButton()
+        button.addTarget(self, action: #selector(onClick), for: .touchUpInside)
+        
+        return button
+    }()
     private let informationStackView = UIStackView()
     private let createdTasksView = InformationBlockView()
     private let completedTasksView = InformationBlockView()
@@ -92,5 +97,18 @@ final class MainViewController: UIViewController {
             informationStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.specificMargin)
         ])
     }
+    
+    @objc
+    private func onClick() {
+        let mainViewController = AddTaskViewController()
+        navigationController?.navigationBar.isHidden = false
+        navigationController?.pushViewController(mainViewController, animated: true)
+    }
+//    func showDetailViewController(_ vc: AddTaskViewController, sender: Any?) {
+//        let addTaskVC = AddTaskViewController()
+//        navigationController?.navigationBar.isHidden = false
+//        navigationController?.pushViewController(addTaskVC, animated: true)
+//    }
 }
+
 

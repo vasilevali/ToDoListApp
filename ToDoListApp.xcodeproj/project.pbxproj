@@ -137,12 +137,12 @@
 			path = ToDoListAppUITests;
 			sourceTree = "<group>";
 		};
-		247D0F202A7EB31000AD8C0A /* Added */ = {
+		247D0F202A7EB31000AD8C0A /* Add */ = {
 			isa = PBXGroup;
 			children = (
 				247D0F212A7EB33600AD8C0A /* AddTaskViewController.swift */,
 			);
-			path = Added;
+			path = Add;
 			sourceTree = "<group>";
 		};
 		33AEFFEB2A7C35B400F075AE /* View */ = {
@@ -174,7 +174,7 @@
 		33FAE2A62A74495400DD5502 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				247D0F202A7EB31000AD8C0A /* Added */,
+				247D0F202A7EB31000AD8C0A /* Add */,
 				33FAE2A92A74496E00DD5502 /* Main */,
 			);
 			path = Screens;
