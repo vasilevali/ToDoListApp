@@ -174,8 +174,8 @@
 		33FAE2A62A74495400DD5502 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				247D0F202A7EB31000AD8C0A /* Add */,
 				33FAE2A92A74496E00DD5502 /* Main */,
+				247D0F202A7EB31000AD8C0A /* Add */,
 			);
 			path = Screens;
 			sourceTree = "<group>";

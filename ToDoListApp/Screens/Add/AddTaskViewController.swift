@@ -17,7 +17,12 @@ final class AddTaskViewController: UIViewController {
     private let timeExecutionDatePicker = UIDatePicker()
     private let descriptionLabel = UILabel()
     private let descriptionTextField = UITextField()
-    private let addTaskButton = UIButton()
+    private let addTaskButton: UIButton = {
+       let button = UIButton()
+        button.addTarget(self, action: #selector(addTaskClick), for: .touchUpInside)
+        
+        return button
+    }()
     
     
     // MARK: - Lifecycle
@@ -90,5 +95,11 @@ final class AddTaskViewController: UIViewController {
             addTaskButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -.extraLargeMargin)
             
         ])
+    }
+    @objc
+    private func addTaskClick() {
+        let addViewController = MainViewController()
+        navigationController?.navigationBar.isHidden = true
+        navigationController?.pushViewController(addViewController, animated: true)
     }
 }

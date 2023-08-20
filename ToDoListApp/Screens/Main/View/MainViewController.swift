@@ -23,7 +23,7 @@ final class MainViewController: UIViewController {
     private let descriptionLabel = UILabel()
     private let addButton: UIButton = {
         let button = UIButton()
-        button.addTarget(self, action: #selector(onClick), for: .touchUpInside)
+        button.addTarget(self, action: #selector(addClick), for: .touchUpInside)
         
         return button
     }()
@@ -78,7 +78,7 @@ final class MainViewController: UIViewController {
         }
         
         NSLayoutConstraint.activate([
-            titleUserLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: .extraLargeMargin),
+            titleUserLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: .minimalSpace),
             titleUserLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: .baseMargin),
             titleUserLabel.trailingAnchor.constraint(equalTo: addButton.leadingAnchor, constant: -.smallMargin),
             
@@ -99,16 +99,11 @@ final class MainViewController: UIViewController {
     }
     
     @objc
-    private func onClick() {
+    private func addClick() {
         let mainViewController = AddTaskViewController()
         navigationController?.navigationBar.isHidden = false
         navigationController?.pushViewController(mainViewController, animated: true)
     }
-//    func showDetailViewController(_ vc: AddTaskViewController, sender: Any?) {
-//        let addTaskVC = AddTaskViewController()
-//        navigationController?.navigationBar.isHidden = false
-//        navigationController?.pushViewController(addTaskVC, animated: true)
-//    }
 }
 
 
