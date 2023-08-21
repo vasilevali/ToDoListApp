@@ -21,7 +21,7 @@ final class MainViewController: UIViewController {
     // UI
     private let titleUserLabel = UILabel()
     private let descriptionLabel = UILabel()
-    private let addButton = UIButton()
+    private let addTaskButton = UIButton()
     private let informationStackView = UIStackView()
     private let createdTasksView = InformationBlockView()
     private let completedTasksView = InformationBlockView()
@@ -35,10 +35,15 @@ final class MainViewController: UIViewController {
         configureLayout()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
+    }
+    
     // MARK: - Private
     
     private func addViews() {
-        [titleUserLabel, descriptionLabel, addButton, informationStackView, informationStackView, createdTasksView].forEach { subview in
+        [titleUserLabel, descriptionLabel, addTaskButton, informationStackView, informationStackView, createdTasksView].forEach { subview in
             view.addSubview(subview)
         }
         [createdTasksView, completedTasksView].forEach { subview in
@@ -48,6 +53,7 @@ final class MainViewController: UIViewController {
     
     private func configureAppearance() {
         view.backgroundColor = .white
+        
         // Labels
         titleUserLabel.font = Assets.Fonts.titleFont
         titleUserLabel.textColor = .black
@@ -57,9 +63,10 @@ final class MainViewController: UIViewController {
         descriptionLabel.numberOfLines = 0
         descriptionLabel.text = "You have 1 task"
         // Button
-        addButton.layer.cornerRadius = .mediumRadius
-        addButton.backgroundColor = Assets.Colors.mainPinkColor
-        addButton.setImage(Assets.Images.plusImage, for: .normal)
+        addTaskButton.addTarget(self, action: #selector(addTaskTapped), for: .touchUpInside)
+        addTaskButton.layer.cornerRadius = .mediumRadius
+        addTaskButton.backgroundColor = Assets.Colors.mainPinkColor
+        addTaskButton.setImage(Assets.Images.plusImage, for: .normal)
         // Information blocks & stack view
         informationStackView.distribution = .fillEqually
         // TODO: - Нужно удалить и заменить на корректные данные
@@ -68,29 +75,37 @@ final class MainViewController: UIViewController {
     }
     
     private func configureLayout() {
-        [titleUserLabel, descriptionLabel, addButton, informationStackView, completedTasksView, createdTasksView].forEach {
+        [titleUserLabel, descriptionLabel, addTaskButton, informationStackView, completedTasksView, createdTasksView].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
         
         NSLayoutConstraint.activate([
             titleUserLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: .extraLargeMargin),
             titleUserLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: .baseMargin),
-            titleUserLabel.trailingAnchor.constraint(equalTo: addButton.leadingAnchor, constant: -.smallMargin),
+            titleUserLabel.trailingAnchor.constraint(equalTo: addTaskButton.leadingAnchor, constant: -.smallMargin),
             
             descriptionLabel.topAnchor.constraint(equalTo: titleUserLabel.bottomAnchor, constant: .tinyMargin),
             descriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: .baseMargin),
             descriptionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -.smallMargin),
             
-            addButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: .extraLargeMargin),
-            addButton.centerYAnchor.constraint(equalTo: titleUserLabel.centerYAnchor),
-            addButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -.extraLargeMargin),
-            addButton.heightAnchor.constraint(equalToConstant: Constants.buttonSize),
-            addButton.widthAnchor.constraint(equalToConstant: Constants.buttonSize),
+            addTaskButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: .extraLargeMargin),
+            addTaskButton.centerYAnchor.constraint(equalTo: titleUserLabel.centerYAnchor),
+            addTaskButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -.extraLargeMargin),
+            addTaskButton.heightAnchor.constraint(equalToConstant: Constants.buttonSize),
+            addTaskButton.widthAnchor.constraint(equalToConstant: Constants.buttonSize),
 
             informationStackView.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: .baseMargin),
             informationStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.specificMargin),
             informationStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.specificMargin)
         ])
     }
+    
+    @objc
+    private func addTaskTapped() {
+        let mainViewController = AddTaskViewController()
+        navigationController?.navigationBar.isHidden = false
+        navigationController?.pushViewController(mainViewController, animated: true)
+    }
 }
+
 
