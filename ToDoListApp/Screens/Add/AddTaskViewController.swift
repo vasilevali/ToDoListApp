@@ -7,7 +7,7 @@
 
 import UIKit
 
-// MARK: - AddedTaskViewController
+// MARK: - AddTaskViewController
 
 final class AddTaskViewController: UIViewController {
  
@@ -17,12 +17,7 @@ final class AddTaskViewController: UIViewController {
     private let timeExecutionDatePicker = UIDatePicker()
     private let descriptionLabel = UILabel()
     private let descriptionTextField = UITextField()
-    private let addTaskButton: UIButton = {
-       let button = UIButton()
-        button.addTarget(self, action: #selector(addTaskClick), for: .touchUpInside)
-        
-        return button
-    }()
+    private let addTaskTapped = UIButton()
     
     
     // MARK: - Lifecycle
@@ -37,13 +32,15 @@ final class AddTaskViewController: UIViewController {
     // MARK: - Private
     
     private func addViews() {
-        [addTaskTextField, timeExecutionDatePicker, addTaskButton, chooseDateLabel, descriptionLabel, descriptionTextField].forEach { subview in
+        [addTaskTextField, timeExecutionDatePicker, addTaskTapped, chooseDateLabel, descriptionLabel, descriptionTextField].forEach { subview in
             view.addSubview(subview)
         }
     }
     
     private func configureAppearance() {
         view.backgroundColor = .white
+        
+        addTaskTapped.addTarget(self, action: #selector(addTaskClick), for: .touchUpInside)
         
         addTaskTextField.placeholder = "Add a task"
         addTaskTextField.font = Assets.Fonts.titleFont
@@ -60,13 +57,13 @@ final class AddTaskViewController: UIViewController {
         descriptionTextField.clearButtonMode = .always
         descriptionTextField.font = Assets.Fonts.mediumBoldFont
         
-        addTaskButton.backgroundColor = .lightGray
-        addTaskButton.layer.cornerRadius = .tinyRadius
-        addTaskButton.setTitle("Add task!", for: .normal)
+        addTaskTapped.backgroundColor = .lightGray
+        addTaskTapped.layer.cornerRadius = .tinyRadius
+        addTaskTapped.setTitle("Add task!", for: .normal)
     }
     
     private func configureLayout() {
-        [addTaskTextField, timeExecutionDatePicker, addTaskButton, chooseDateLabel, descriptionLabel, descriptionTextField].forEach {
+        [addTaskTextField, timeExecutionDatePicker, addTaskTapped, chooseDateLabel, descriptionLabel, descriptionTextField].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
         NSLayoutConstraint.activate([
@@ -90,9 +87,9 @@ final class AddTaskViewController: UIViewController {
             descriptionTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -.largeMargin),
 
             
-            addTaskButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -.extraLargeMargin),
-            addTaskButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: .extraLargeMargin),
-            addTaskButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -.extraLargeMargin)
+            addTaskTapped.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -.extraLargeMargin),
+            addTaskTapped.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: .extraLargeMargin),
+            addTaskTapped.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -.extraLargeMargin)
             
         ])
     }
@@ -101,5 +98,6 @@ final class AddTaskViewController: UIViewController {
         let addViewController = MainViewController()
         navigationController?.navigationBar.isHidden = true
         navigationController?.pushViewController(addViewController, animated: true)
+        self.dismiss(animated: true)
     }
 }
