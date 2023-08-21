@@ -35,6 +35,11 @@ final class MainViewController: UIViewController {
         configureLayout()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
+    }
+    
     // MARK: - Private
     
     private func addViews() {
@@ -58,7 +63,7 @@ final class MainViewController: UIViewController {
         descriptionLabel.numberOfLines = 0
         descriptionLabel.text = "You have 1 task"
         // Button
-        addTaskButton.addTarget(self, action: #selector(addClick), for: .touchUpInside)
+        addTaskButton.addTarget(self, action: #selector(addTaskTapped), for: .touchUpInside)
         addTaskButton.layer.cornerRadius = .mediumRadius
         addTaskButton.backgroundColor = Assets.Colors.mainPinkColor
         addTaskButton.setImage(Assets.Images.plusImage, for: .normal)
@@ -96,7 +101,7 @@ final class MainViewController: UIViewController {
     }
     
     @objc
-    private func addClick() {
+    private func addTaskTapped() {
         let mainViewController = AddTaskViewController()
         navigationController?.navigationBar.isHidden = false
         navigationController?.pushViewController(mainViewController, animated: true)
