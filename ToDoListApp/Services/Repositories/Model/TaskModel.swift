@@ -6,10 +6,12 @@
 //
 
 import Foundation
+import UIKit
 
 struct TaskModel {
     let name: String
     let description: String?
     let executionAt: Date?
+//    let executionAt: String?
     let priority: TaskPriority?
 }
