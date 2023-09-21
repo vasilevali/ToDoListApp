@@ -37,12 +37,6 @@ final class MainViewController: UIViewController {
         addViews()
         configureAppearance()
         configureLayout()
-        
-        self.cells = configureData()
-        tasksListTableView.dataSource = self
-        tasksListTableView.delegate = self
-        
-        tasksListTableView.separatorColor = UIColor.clear
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -64,6 +58,7 @@ final class MainViewController: UIViewController {
     private func configureAppearance() {
         view.backgroundColor = .white
         
+        self.cells = configureData()
         // Labels
         titleUserLabel.font = Assets.Fonts.titleFont
         titleUserLabel.textColor = .black
@@ -79,14 +74,19 @@ final class MainViewController: UIViewController {
         addTaskButton.setImage(Assets.Images.plusImage, for: .normal)
         // Information blocks & stack view
         informationStackView.distribution = .fillEqually
-        // Cell
-        tasksListTableView.register(TableViewCell.self, forCellReuseIdentifier: TableViewCell.identifier)
+        // Table
+        tasksListTableView.register(TaskCell.self, forCellReuseIdentifier: TaskCell.identifier)
         tasksListTableView.rowHeight = UITableView.automaticDimension
+        tasksListTableView.estimatedRowHeight = 48
+        tasksListTableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0.001, height: 0))
+        tasksListTableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0.001, height: 0))
+        tasksListTableView.dataSource = self
+        tasksListTableView.delegate = self
+        tasksListTableView.separatorColor = UIColor.clear
+        tasksListTableView.backgroundColor = .clear
         // TODO: - Нужно удалить и заменить на корректные данные
         createdTasksView.configure(with: InformationBlockView.Model(count: 2, description: "Task created"))
         completedTasksView.configure(with: InformationBlockView.Model(count: 3, description: "Task completed"))
-        
-        tasksListTableView.backgroundColor = .white
     }
     
     private func configureLayout() {
@@ -141,6 +141,7 @@ final class MainViewController: UIViewController {
     }
 }
 
+// MARK: - TableView
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
@@ -151,7 +152,9 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.identifier, for: indexPath) as! TableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TaskCell.identifier, for: indexPath) as? TaskCell else {
+            return UITableViewCell()
+        }
         
         cell.configure(with: cells[indexPath.row])
         
