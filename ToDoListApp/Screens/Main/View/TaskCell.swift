@@ -9,11 +9,12 @@ import UIKit
 
 // MARK: - Constants
 
-private struct Constants {
+private enum Constants {
     static let sizePriority: CGFloat = 12
 }
 
-class TableViewCell: UITableViewCell {
+// MARK: - TaskCell
+final class TaskCell: UITableViewCell {
     
     // Public property
     static var identifier: String {
@@ -29,7 +30,7 @@ class TableViewCell: UITableViewCell {
     
     // MARK: - Init
     
-    override init(style: TableViewCell.CellStyle, reuseIdentifier: String?) {
+    override init(style: TaskCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addCell()
         configureLayout()
@@ -106,7 +107,7 @@ class TableViewCell: UITableViewCell {
 
 // MARK: - Extension TableViewCell
 
-extension TableViewCell: Configurable {
+extension TaskCell: Configurable {
     typealias Model = TaskModel
     
     func configure(with model: TaskModel) {
