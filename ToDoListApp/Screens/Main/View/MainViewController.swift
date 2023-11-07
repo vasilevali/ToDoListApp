@@ -142,6 +142,7 @@ final class MainViewController: UIViewController {
 }
 
 // MARK: - TableView
+
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension

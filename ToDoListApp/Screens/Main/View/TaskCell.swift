@@ -14,6 +14,7 @@ private enum Constants {
 }
 
 // MARK: - TaskCell
+
 final class TaskCell: UITableViewCell {
     
     // Public property
