@@ -18,6 +18,9 @@ private enum Constants {
 
 final class MainViewController: UIViewController {
     
+    // addViewModel
+    var viewModel =  ViewModel()
+    
     private var cells: [TaskModel] = []
     
     // UI
@@ -37,6 +40,19 @@ final class MainViewController: UIViewController {
         addViews()
         configureAppearance()
         configureLayout()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        bindViewModel()
+    }
+
+    func bindViewModel() {
+        viewModel.tappingAddButton.bind({ (tappingAddButton) in
+            DispatchQueue.main.async {
+                self.addTaskButton.buttonType 
+            }
+        })
     }
     
     override func viewWillAppear(_ animated: Bool) {

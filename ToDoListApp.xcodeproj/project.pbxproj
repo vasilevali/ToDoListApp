@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		243E58522A969A95000AD128 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243E58512A969A95000AD128 /* TaskCell.swift */; };
+		244367DE2AFD68E40021CCD8 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244367DD2AFD68E40021CCD8 /* ViewModel.swift */; };
+		244367E02AFD6E550021CCD8 /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244367DF2AFD6E550021CCD8 /* Dynamic.swift */; };
 		247D0EEB2A7440B600AD8C0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D0EEA2A7440B600AD8C0A /* AppDelegate.swift */; };
 		247D0EED2A7440B600AD8C0A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D0EEC2A7440B600AD8C0A /* SceneDelegate.swift */; };
 		247D0EEF2A7440B600AD8C0A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D0EEE2A7440B600AD8C0A /* MainViewController.swift */; };
@@ -47,6 +49,8 @@
 
 /* Begin PBXFileReference section */
 		243E58512A969A95000AD128 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
+		244367DD2AFD68E40021CCD8 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		244367DF2AFD6E550021CCD8 /* Dynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = "<group>"; };
 		247D0EE72A7440B600AD8C0A /* ToDoListApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoListApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		247D0EEA2A7440B600AD8C0A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		247D0EEC2A7440B600AD8C0A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -204,6 +208,8 @@
 				247D0EEE2A7440B600AD8C0A /* MainViewController.swift */,
 				243E58512A969A95000AD128 /* TaskCell.swift */,
 				247D0F1D2A757F4D00AD8C0A /* InformationBlockView.swift */,
+				244367DD2AFD68E40021CCD8 /* ViewModel.swift */,
+				244367DF2AFD6E550021CCD8 /* Dynamic.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -401,8 +407,10 @@
 				247D0F1E2A757F4D00AD8C0A /* InformationBlockView.swift in Sources */,
 				33AEFFF02A7C364600F075AE /* Configurable.swift in Sources */,
 				3372BDD62A7EC9770024737C /* TaskPriority.swift in Sources */,
+				244367DE2AFD68E40021CCD8 /* ViewModel.swift in Sources */,
 				247D0EED2A7440B600AD8C0A /* SceneDelegate.swift in Sources */,
 				33AEFFED2A7C361500F075AE /* BaseConstants.swift in Sources */,
+				244367E02AFD6E550021CCD8 /* Dynamic.swift in Sources */,
 				3372BDD02A7EC3E50024737C /* PersictenceService.swift in Sources */,
 				247D0EF52A7440B600AD8C0A /* ToDoListApp.xcdatamodeld in Sources */,
 			);
