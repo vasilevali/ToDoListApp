@@ -1,14 +1,14 @@
 //
-//  ViewModel.swift
+//  ViewModelAddTask.swift
 //  ToDoListApp
 //
-//  Created by Alice on 09.11.2023.
+//  Created by мак on 11.11.2023.
 //
 
 import Foundation
 
 // MARK: - MainViewModel
 
-final class ViewModel {
+final class ViewModelAddTask {
     var tappingAddButton = Dynamic("")
 }

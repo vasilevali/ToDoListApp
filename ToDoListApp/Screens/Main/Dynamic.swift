@@ -2,7 +2,7 @@
 //  Dynamic.swift
 //  ToDoListApp
 //
-//  Created by мак on 09.11.2023.
+//  Created by Alice on 09.11.2023.
 //
 
 import Foundation
