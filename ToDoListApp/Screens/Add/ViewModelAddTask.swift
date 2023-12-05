@@ -9,6 +9,4 @@ import Foundation
 
 // MARK: - MainViewModel
 
-final class ViewModelAddTask {
-    var tappingAddButton = Dynamic("")
-}
+
