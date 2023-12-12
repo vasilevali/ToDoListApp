@@ -1,5 +1,5 @@
 //
-//  Repository.swift
+//  PersistenceRepository.swift
 //  ToDoListApp
 //
 //  Created by Alice on 12.11.2023.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class ProcessingRepository {
+final class PersistenceRepository {
     
     private let persistence: PersistenceService
     

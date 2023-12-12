@@ -1,23 +1,23 @@
 //
-//  File.swift
+//  MainViewModel.swift
 //  ToDoListApp
 //
-//  Created by мак on 20.11.2023.
+//  Created by Alice on 20.11.2023.
 //
 
 import UIKit
 
-protocol MainViewModelProtocol {
+protocol IMainViewModel {
     func addTaskToList(_ task: TaskModel)
     func fetchAllTasksToList() -> [TaskModel]
     func deleteTaskList(_ task: TaskModel)
 }
 
-final class MainViewModel: MainViewModelProtocol {
+final class MainViewModel: IMainViewModel {
     
-    private let repository: ProcessingRepository
+    private let repository: PersistenceRepository
     
-    init(repository: ProcessingRepository) {
+    init(repository: PersistenceRepository) {
         self.repository = repository
     }
     
