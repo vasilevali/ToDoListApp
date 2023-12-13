@@ -18,6 +18,9 @@ private enum Constants {
 
 final class MainViewController: UIViewController {
     
+    // addViewModel
+
+    
     private var cells: [TaskModel] = []
     
     // UI
@@ -37,6 +40,10 @@ final class MainViewController: UIViewController {
         addViews()
         configureAppearance()
         configureLayout()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
