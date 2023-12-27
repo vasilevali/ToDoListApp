@@ -77,8 +77,11 @@ final class PersistenceService: IPersistenceService {
         let request: NSFetchRequest<Task> = Task.fetchRequest()
         
         do {
-            guard let tasks = try viewContext.fetch(request) as? [TaskModel] else { return }
-            complition(.success(tasks))
+            let tasks = try viewContext.fetch(request)
+            let currentTasks = tasks.map {
+                TaskModel(name: $0.name ?? "", description: $0.descriptionTask, executionAt: $0.executionAt, priority: TaskPriority(rawValue: Int($0.priority)))
+            }
+            complition(.success(currentTasks))
         } catch {
             complition(.failure(PercictenceState.fetchedResultError))
         }
