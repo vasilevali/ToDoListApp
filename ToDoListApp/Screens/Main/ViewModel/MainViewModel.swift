@@ -8,7 +8,6 @@
 import UIKit
 
 protocol IMainViewModel {
-    func addTaskToList(_ task: TaskModel)
     func fetchAllTasksToList() -> [TaskModel]
     func deleteTaskList(_ task: TaskModel)
 }
@@ -20,16 +19,12 @@ final class MainViewModel: IMainViewModel {
     init(repository: PersistenceRepository) {
         self.repository = repository
     }
-    
-    func addTaskToList(_ task: TaskModel) {
-        repository.addTask(task)
-    }
-    
+
     func fetchAllTasksToList() -> [TaskModel] {
-        return repository.fetchAllTasks()
+        return repository.fetchAllTasksToList()
     }
     
     func deleteTaskList(_ task: TaskModel) {
-        repository.deleteTask(task)
+        repository.deleteTaskToList(task)
     }
 }

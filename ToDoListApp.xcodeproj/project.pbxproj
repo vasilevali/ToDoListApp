@@ -8,9 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		243E58522A969A95000AD128 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243E58512A969A95000AD128 /* TaskCell.swift */; };
-		244367E22B001DBA0021CCD8 /* ViewModelAddTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244367E12B001DBA0021CCD8 /* ViewModelAddTask.swift */; };
 		244367E62B0163370021CCD8 /* PersistenceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244367E52B0163370021CCD8 /* PersistenceRepository.swift */; };
 		244367ED2B0BE7AD0021CCD8 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244367EC2B0BE7AD0021CCD8 /* MainViewModel.swift */; };
+		247951E32B40DBD1005EE132 /* AddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247951E22B40DBD1005EE132 /* AddViewModel.swift */; };
+		247951E52B40DCB0005EE132 /* Coordinater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247951E42B40DCB0005EE132 /* Coordinater.swift */; };
+		247951E72B41B390005EE132 /* Coordinater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247951E62B41B390005EE132 /* Coordinater.swift */; };
 		247D0EEB2A7440B600AD8C0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D0EEA2A7440B600AD8C0A /* AppDelegate.swift */; };
 		247D0EED2A7440B600AD8C0A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D0EEC2A7440B600AD8C0A /* SceneDelegate.swift */; };
 		247D0EEF2A7440B600AD8C0A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D0EEE2A7440B600AD8C0A /* MainViewController.swift */; };
@@ -50,9 +52,11 @@
 
 /* Begin PBXFileReference section */
 		243E58512A969A95000AD128 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
-		244367E12B001DBA0021CCD8 /* ViewModelAddTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelAddTask.swift; sourceTree = "<group>"; };
 		244367E52B0163370021CCD8 /* PersistenceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceRepository.swift; sourceTree = "<group>"; };
 		244367EC2B0BE7AD0021CCD8 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		247951E22B40DBD1005EE132 /* AddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewModel.swift; sourceTree = "<group>"; };
+		247951E42B40DCB0005EE132 /* Coordinater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinater.swift; sourceTree = "<group>"; };
+		247951E62B41B390005EE132 /* Coordinater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinater.swift; sourceTree = "<group>"; };
 		247D0EE72A7440B600AD8C0A /* ToDoListApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoListApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		247D0EEA2A7440B600AD8C0A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		247D0EEC2A7440B600AD8C0A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -110,6 +114,29 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		247951DF2B40DB8A005EE132 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				247D0F212A7EB33600AD8C0A /* AddTaskViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		247951E02B40DB97005EE132 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		247951E12B40DBAB005EE132 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				247951E22B40DBD1005EE132 /* AddViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		247D0EDE2A7440B600AD8C0A = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +166,7 @@
 				33FAE2A62A74495400DD5502 /* Screens */,
 				247D0EEA2A7440B600AD8C0A /* AppDelegate.swift */,
 				247D0EEC2A7440B600AD8C0A /* SceneDelegate.swift */,
+				247951E42B40DCB0005EE132 /* Coordinater.swift */,
 				247D0EFB2A7440BB00AD8C0A /* Info.plist */,
 				247D0EF32A7440B600AD8C0A /* ToDoListApp.xcdatamodeld */,
 			);
@@ -165,8 +193,9 @@
 		247D0F202A7EB31000AD8C0A /* Add */ = {
 			isa = PBXGroup;
 			children = (
-				247D0F212A7EB33600AD8C0A /* AddTaskViewController.swift */,
-				244367E12B001DBA0021CCD8 /* ViewModelAddTask.swift */,
+				247951E12B40DBAB005EE132 /* ViewModel */,
+				247951E02B40DB97005EE132 /* Model */,
+				247951DF2B40DB8A005EE132 /* View */,
 			);
 			path = Add;
 			sourceTree = "<group>";
@@ -228,6 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				33AEFFEF2A7C364600F075AE /* Configurable.swift */,
+				247951E62B41B390005EE132 /* Coordinater.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -413,10 +443,11 @@
 				247D0EEF2A7440B600AD8C0A /* MainViewController.swift in Sources */,
 				3372BDD42A7EC9320024737C /* TaskModel.swift in Sources */,
 				247D0EEB2A7440B600AD8C0A /* AppDelegate.swift in Sources */,
-				244367E22B001DBA0021CCD8 /* ViewModelAddTask.swift in Sources */,
 				243E58522A969A95000AD128 /* TaskCell.swift in Sources */,
+				247951E72B41B390005EE132 /* Coordinater.swift in Sources */,
 				244367ED2B0BE7AD0021CCD8 /* MainViewModel.swift in Sources */,
 				3372BDD92A7ECEAF0024737C /* PersictenceError.swift in Sources */,
+				247951E52B40DCB0005EE132 /* Coordinater.swift in Sources */,
 				247D0F1E2A757F4D00AD8C0A /* InformationBlockView.swift in Sources */,
 				33AEFFF02A7C364600F075AE /* Configurable.swift in Sources */,
 				3372BDD62A7EC9770024737C /* TaskPriority.swift in Sources */,
@@ -424,6 +455,7 @@
 				33AEFFED2A7C361500F075AE /* BaseConstants.swift in Sources */,
 				3372BDD02A7EC3E50024737C /* PersictenceService.swift in Sources */,
 				247D0EF52A7440B600AD8C0A /* ToDoListApp.xcdatamodeld in Sources */,
+				247951E32B40DBD1005EE132 /* AddViewModel.swift in Sources */,
 				244367E62B0163370021CCD8 /* PersistenceRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

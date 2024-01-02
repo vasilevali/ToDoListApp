@@ -18,9 +18,11 @@ private enum Constants {
 
 final class MainViewController: UIViewController {
     
+    // Dependencies
+    var viewModel: MainViewModel
+    
     // addViewModel
 
-    
     private var cells: [TaskModel] = []
     
     // UI
@@ -31,6 +33,16 @@ final class MainViewController: UIViewController {
     private let createdTasksView = InformationBlockView()
     private let completedTasksView = InformationBlockView()
     private let tasksListTableView = UITableView(frame: .zero, style: UITableView.Style.grouped)
+    
+    // Init
+    init(viewModel: MainViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required public init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
  
     // MARK: - Lifecycle

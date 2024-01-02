@@ -7,7 +7,13 @@
 
 import Foundation
 
-final class PersistenceRepository {
+protocol IPersistenceRepository {
+    func addTaskToList(_ task: TaskModel)
+    func fetchAllTasksToList() -> [TaskModel]
+    func deleteTaskToList(_ task: TaskModel)
+}
+
+final class PersistenceRepository: IPersistenceRepository {
     
     private let persistence: PersistenceService
     
@@ -15,11 +21,15 @@ final class PersistenceRepository {
         self.persistence = persistence
     }
     
-    func addTask(_ task: TaskModel) {
+    func deleteTaskToList(_ task: TaskModel) {
+        persistence.deleteTask(task)
+    }
+    
+    func addTaskToList(_ task: TaskModel) {
         persistence.addTask(task)
     }
-
-    func fetchAllTasks() -> [TaskModel] {
+    
+    func fetchAllTasksToList() -> [TaskModel] {
         var currentTasks: [TaskModel] = []
         persistence.fetchAllTasks { result in
             switch result {
@@ -29,9 +39,5 @@ final class PersistenceRepository {
             }
         }
         return currentTasks
-    }
-    
-    func deleteTask(_ task: TaskModel) {
-        persistence.deleteTask(task)
     }
 }
