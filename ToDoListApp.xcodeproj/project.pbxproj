@@ -23,7 +23,7 @@
 		247D0F0F2A7440BC00AD8C0A /* ToDoListAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D0F0E2A7440BC00AD8C0A /* ToDoListAppUITests.swift */; };
 		247D0F112A7440BC00AD8C0A /* ToDoListAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D0F102A7440BC00AD8C0A /* ToDoListAppUITestsLaunchTests.swift */; };
 		247D0F1E2A757F4D00AD8C0A /* InformationBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D0F1D2A757F4D00AD8C0A /* InformationBlockView.swift */; };
-		247D0F222A7EB33600AD8C0A /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D0F212A7EB33600AD8C0A /* AddTaskViewController.swift */; };
+		249EA2042B4DE46000D73E4C /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249EA2032B4DE46000D73E4C /* AddTaskViewController.swift */; };
 		3372BDD02A7EC3E50024737C /* PersictenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3372BDCF2A7EC3E50024737C /* PersictenceService.swift */; };
 		3372BDD42A7EC9320024737C /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3372BDD32A7EC9320024737C /* TaskModel.swift */; };
 		3372BDD62A7EC9770024737C /* TaskPriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3372BDD52A7EC9770024737C /* TaskPriority.swift */; };
@@ -71,7 +71,7 @@
 		247D0F0E2A7440BC00AD8C0A /* ToDoListAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListAppUITests.swift; sourceTree = "<group>"; };
 		247D0F102A7440BC00AD8C0A /* ToDoListAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		247D0F1D2A757F4D00AD8C0A /* InformationBlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationBlockView.swift; sourceTree = "<group>"; };
-		247D0F212A7EB33600AD8C0A /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
+		249EA2032B4DE46000D73E4C /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		3372BDCF2A7EC3E50024737C /* PersictenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersictenceService.swift; sourceTree = "<group>"; };
 		3372BDD32A7EC9320024737C /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
 		3372BDD52A7EC9770024737C /* TaskPriority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskPriority.swift; sourceTree = "<group>"; };
@@ -117,16 +117,9 @@
 		247951DF2B40DB8A005EE132 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				247D0F212A7EB33600AD8C0A /* AddTaskViewController.swift */,
+				249EA2032B4DE46000D73E4C /* AddTaskViewController.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		247951E02B40DB97005EE132 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		247951E12B40DBAB005EE132 /* ViewModel */ = {
@@ -194,7 +187,6 @@
 			isa = PBXGroup;
 			children = (
 				247951E12B40DBAB005EE132 /* ViewModel */,
-				247951E02B40DB97005EE132 /* Model */,
 				247951DF2B40DB8A005EE132 /* View */,
 			);
 			path = Add;
@@ -439,7 +431,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				33AEFFF32A7C37B100F075AE /* Assets.swift in Sources */,
-				247D0F222A7EB33600AD8C0A /* AddTaskViewController.swift in Sources */,
 				247D0EEF2A7440B600AD8C0A /* MainViewController.swift in Sources */,
 				3372BDD42A7EC9320024737C /* TaskModel.swift in Sources */,
 				247D0EEB2A7440B600AD8C0A /* AppDelegate.swift in Sources */,
@@ -447,6 +438,7 @@
 				247951E72B41B390005EE132 /* Coordinater.swift in Sources */,
 				244367ED2B0BE7AD0021CCD8 /* MainViewModel.swift in Sources */,
 				3372BDD92A7ECEAF0024737C /* PersictenceError.swift in Sources */,
+				249EA2042B4DE46000D73E4C /* AddTaskViewController.swift in Sources */,
 				247951E52B40DCB0005EE132 /* Coordinater.swift in Sources */,
 				247D0F1E2A757F4D00AD8C0A /* InformationBlockView.swift in Sources */,
 				33AEFFF02A7C364600F075AE /* Configurable.swift in Sources */,
