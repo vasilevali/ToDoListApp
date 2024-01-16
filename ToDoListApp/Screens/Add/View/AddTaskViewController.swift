@@ -100,3 +100,14 @@ final class AddTaskViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
 }
+
+extension AddTaskViewController: Configurable {
+    
+    typealias Model = TaskModel
+    
+    func configure(with model: TaskModel) {
+        descriptionTextField.text = model.description
+        addTaskTextField.text = model.name
+        timeExecutionDatePicker.date = model.executionAt! //нужно потом поправить
+    }
+}

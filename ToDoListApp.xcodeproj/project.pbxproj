@@ -11,8 +11,8 @@
 		244367E62B0163370021CCD8 /* PersistenceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244367E52B0163370021CCD8 /* PersistenceRepository.swift */; };
 		244367ED2B0BE7AD0021CCD8 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244367EC2B0BE7AD0021CCD8 /* MainViewModel.swift */; };
 		247951E32B40DBD1005EE132 /* AddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247951E22B40DBD1005EE132 /* AddViewModel.swift */; };
-		247951E52B40DCB0005EE132 /* Coordinater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247951E42B40DCB0005EE132 /* Coordinater.swift */; };
-		247951E72B41B390005EE132 /* Coordinater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247951E62B41B390005EE132 /* Coordinater.swift */; };
+		247951E52B40DCB0005EE132 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247951E42B40DCB0005EE132 /* AppCoordinator.swift */; };
+		247951E72B41B390005EE132 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247951E62B41B390005EE132 /* Coordinator.swift */; };
 		247D0EEB2A7440B600AD8C0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D0EEA2A7440B600AD8C0A /* AppDelegate.swift */; };
 		247D0EED2A7440B600AD8C0A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D0EEC2A7440B600AD8C0A /* SceneDelegate.swift */; };
 		247D0EEF2A7440B600AD8C0A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D0EEE2A7440B600AD8C0A /* MainViewController.swift */; };
@@ -55,8 +55,8 @@
 		244367E52B0163370021CCD8 /* PersistenceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceRepository.swift; sourceTree = "<group>"; };
 		244367EC2B0BE7AD0021CCD8 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		247951E22B40DBD1005EE132 /* AddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewModel.swift; sourceTree = "<group>"; };
-		247951E42B40DCB0005EE132 /* Coordinater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinater.swift; sourceTree = "<group>"; };
-		247951E62B41B390005EE132 /* Coordinater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinater.swift; sourceTree = "<group>"; };
+		247951E42B40DCB0005EE132 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		247951E62B41B390005EE132 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		247D0EE72A7440B600AD8C0A /* ToDoListApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoListApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		247D0EEA2A7440B600AD8C0A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		247D0EEC2A7440B600AD8C0A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -159,7 +159,7 @@
 				33FAE2A62A74495400DD5502 /* Screens */,
 				247D0EEA2A7440B600AD8C0A /* AppDelegate.swift */,
 				247D0EEC2A7440B600AD8C0A /* SceneDelegate.swift */,
-				247951E42B40DCB0005EE132 /* Coordinater.swift */,
+				247951E42B40DCB0005EE132 /* AppCoordinator.swift */,
 				247D0EFB2A7440BB00AD8C0A /* Info.plist */,
 				247D0EF32A7440B600AD8C0A /* ToDoListApp.xcdatamodeld */,
 			);
@@ -249,7 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				33AEFFEF2A7C364600F075AE /* Configurable.swift */,
-				247951E62B41B390005EE132 /* Coordinater.swift */,
+				247951E62B41B390005EE132 /* Coordinator.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -435,11 +435,11 @@
 				3372BDD42A7EC9320024737C /* TaskModel.swift in Sources */,
 				247D0EEB2A7440B600AD8C0A /* AppDelegate.swift in Sources */,
 				243E58522A969A95000AD128 /* TaskCell.swift in Sources */,
-				247951E72B41B390005EE132 /* Coordinater.swift in Sources */,
+				247951E72B41B390005EE132 /* Coordinator.swift in Sources */,
 				244367ED2B0BE7AD0021CCD8 /* MainViewModel.swift in Sources */,
 				3372BDD92A7ECEAF0024737C /* PersictenceError.swift in Sources */,
 				249EA2042B4DE46000D73E4C /* AddTaskViewController.swift in Sources */,
-				247951E52B40DCB0005EE132 /* Coordinater.swift in Sources */,
+				247951E52B40DCB0005EE132 /* AppCoordinator.swift in Sources */,
 				247D0F1E2A757F4D00AD8C0A /* InformationBlockView.swift in Sources */,
 				33AEFFF02A7C364600F075AE /* Configurable.swift in Sources */,
 				3372BDD62A7EC9770024737C /* TaskPriority.swift in Sources */,

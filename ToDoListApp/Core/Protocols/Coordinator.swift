@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol Coordinater {
+public protocol Coordinator {
     
     var navigationController: UINavigationController { get set }
     
