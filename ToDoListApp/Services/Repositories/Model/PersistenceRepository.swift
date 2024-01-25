@@ -10,7 +10,7 @@ import Foundation
 protocol IPersistenceRepository {
     func addTaskToList(_ task: TaskModel)
     func fetchAllTasksToList() -> [TaskModel]
-    func deleteTaskToList(_ task: TaskModel)
+    func deleteTaskFromList(_ task: TaskModel)
 }
 
 final class PersistenceRepository: IPersistenceRepository {
@@ -21,7 +21,7 @@ final class PersistenceRepository: IPersistenceRepository {
         self.persistence = persistence
     }
     
-    func deleteTaskToList(_ task: TaskModel) {
+    func deleteTaskFromList(_ task: TaskModel) {
         persistence.deleteTask(task)
     }
     

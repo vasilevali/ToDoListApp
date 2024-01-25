@@ -15,11 +15,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
-//        let viewController = MainViewController(viewModel: MainViewModel(repository: PersistenceRepository(persistence: PersistenceService())))
         let vm = MainViewModel(repository: PersistenceRepository(persistence: PersistenceService()))
         let vc = MainViewController(viewModel: vm)
-        let navigationController = UINavigationController(rootViewController: vc)
-        window.rootViewController = navigationController
+        let navigationController = AppCoordinator(navigationController: UINavigationController(rootViewController: vc), addTaskViewontroller: AddTaskViewController(), persistenceRepository: PersistenceRepository(persistence: PersistenceService()))
         window.makeKeyAndVisible()
         self.window = window
     }
