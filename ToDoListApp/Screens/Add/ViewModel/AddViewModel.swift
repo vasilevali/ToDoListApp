@@ -9,7 +9,7 @@ import Foundation
 
 protocol IAddViewModel {
     func addTaskToList(_ task: TaskModel)
-    func fetchAllTasksToList() -> [TaskModel]
+    func fetchAllTasksToList() -> [TaskModel]?
 }
 
 final class AddViewModel: IAddViewModel {
@@ -24,8 +24,12 @@ final class AddViewModel: IAddViewModel {
         repository.addTaskToList(task)
     }
     
-    func fetchAllTasksToList() -> [TaskModel] {
-        return repository.fetchAllTasksToList()
+    func fetchAllTasksToList() -> [TaskModel]? {
+         
+         let fetchAllTasksToList = [TaskModel]()
+         if fetchAllTasksToList.isEmpty { return nil }
+         
+         return repository.fetchAllTasksToList()
     }
 }
 

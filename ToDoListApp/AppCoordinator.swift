@@ -44,8 +44,6 @@ extension AppCoordinator: MainNaigator {
  
     func addTask(with model: AddTaskViewController.Model) {
         let avc = AddTaskViewController()
-        let mvc = MainViewController(viewModel: MainViewModel(repository: PersistenceRepository(persistence: PersistenceService())))
-        avc.configure(with: model)
-        navigationController.present(mvc, animated: true)
+        navigationController.present(avc, animated: true)
     }
 }

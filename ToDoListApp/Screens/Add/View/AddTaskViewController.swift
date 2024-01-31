@@ -101,6 +101,8 @@ final class AddTaskViewController: UIViewController {
     }
 }
 
+// MARK: - Configurable
+
 extension AddTaskViewController: Configurable {
     
     typealias Model = TaskModel
