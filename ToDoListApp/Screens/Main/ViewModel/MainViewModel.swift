@@ -25,6 +25,6 @@ final class MainViewModel: IMainViewModel {
     }
     
     func deleteTaskList(_ task: TaskModel) {
-        repository.deleteTaskFromList(task)
+        repository.deleteTaskToList(task)
     }
 }
