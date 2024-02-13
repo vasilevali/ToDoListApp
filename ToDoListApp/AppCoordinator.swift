@@ -8,7 +8,7 @@
 import UIKit
 
 protocol MainNaigator: AnyObject {
-    func addTask(with model: AddTaskViewController.Model)
+    func addTask()
 }
 
 // MARK: - AppCoordinater
@@ -17,24 +17,23 @@ class AppCoordinator: Coordinator {
     
     // Dependencies
     var navigationController: UINavigationController
-    var addTaskViewontroller: AddTaskViewController
     var persistenceRepository: IPersistenceRepository
     
     
     // MARK: - Init
     
-    init(navigationController: UINavigationController, addTaskViewontroller: AddTaskViewController, persistenceRepository: IPersistenceRepository) {
+    init(navigationController: UINavigationController, persistenceRepository: IPersistenceRepository) {
         self.navigationController = navigationController
-        self.addTaskViewontroller = addTaskViewontroller
         self.persistenceRepository = persistenceRepository
     }
     
     // MARK: - Coordinater
     
     func start() {
-        let mvm = MainViewModel(repository: PersistenceRepository(persistence: PersistenceService()))
+        let mvm = MainViewModel(navigation: self, repository: PersistenceRepository(persistence: PersistenceService()))
         let mvc = MainViewController(viewModel: mvm)
         navigationController.setViewControllers([mvc], animated: false)
+        navigationController.setNavigationBarHidden(true, animated: true)
     }
 }
 
@@ -42,8 +41,6 @@ class AppCoordinator: Coordinator {
 
 extension AppCoordinator: MainNaigator {
  
-    func addTask(with model: AddTaskViewController.Model) {
-        let avc = AddTaskViewController()
-        navigationController.present(avc, animated: true)
+    func addTask() {
     }
 }

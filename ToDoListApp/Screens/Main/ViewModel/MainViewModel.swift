@@ -14,10 +14,12 @@ protocol IMainViewModel {
 
 final class MainViewModel: IMainViewModel {
     
+    private let navigation: MainNaigator
     private let repository: PersistenceRepository
     
-    init(repository: PersistenceRepository) {
+    init(navigation: MainNaigator, repository: PersistenceRepository) {
         self.repository = repository
+        self.navigation = navigation
     }
 
     func fetchAllTasksToList() -> [TaskModel] {
@@ -26,5 +28,9 @@ final class MainViewModel: IMainViewModel {
     
     func deleteTaskList(_ task: TaskModel) {
         repository.deleteTaskFromList(task)
+    }
+    
+    func goToAddTask() {
+        navigation.addTask()
     }
 }

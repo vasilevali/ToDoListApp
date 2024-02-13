@@ -58,11 +58,6 @@ final class MainViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.isHidden = true
-    }
-    
     // MARK: - Private
     
     private func addViews() {
@@ -154,9 +149,7 @@ final class MainViewController: UIViewController {
     
     @objc
     private func addTaskTapped() {
-        let mainViewController = AddTaskViewController()
-        navigationController?.navigationBar.isHidden = false
-        navigationController?.pushViewController(mainViewController, animated: true)
+        viewModel.goToAddTask()
     }
 }
 

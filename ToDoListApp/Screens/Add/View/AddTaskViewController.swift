@@ -20,7 +20,6 @@ final class AddTaskViewController: UIViewController {
     private let descriptionTextField = UITextField()
     private let addTaskButton = UIButton()
     
-    
     // MARK: - Lifecycle
     
     override func loadView() {
@@ -61,6 +60,10 @@ final class AddTaskViewController: UIViewController {
         addTaskButton.backgroundColor = .lightGray
         addTaskButton.layer.cornerRadius = .tinyRadius
         addTaskButton.setTitle("Add task!", for: .normal)
+        
+        let buttonDelete = UIBarButtonItem(title: "Delete", style: UIBarButtonItem.Style.done, target: self, action: #selector(deleteTaskTapped))
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController?.navigationItem.setRightBarButton(buttonDelete, animated: true)
     }
     
     private func configureLayout() {
@@ -87,16 +90,19 @@ final class AddTaskViewController: UIViewController {
             descriptionTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: .largeMargin),
             descriptionTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -.largeMargin),
             
-            
             addTaskButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -.extraLargeMargin),
             addTaskButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: .extraLargeMargin),
             addTaskButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -.extraLargeMargin)
-            
         ])
     }
     
     @objc
     private func addTaskTapped() {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @objc
+    func deleteTaskTapped() {
         navigationController?.popViewController(animated: true)
     }
 }
