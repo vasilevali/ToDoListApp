@@ -14,23 +14,33 @@ protocol IMainViewModel {
 
 final class MainViewModel: IMainViewModel {
     
-    private let navigation: MainNaigator
+    private let navigation: MainNavigator
     private let repository: PersistenceRepository
     
-    init(navigation: MainNaigator, repository: PersistenceRepository) {
+    init(navigation: MainNavigator, repository: PersistenceRepository) {
         self.repository = repository
         self.navigation = navigation
     }
-
+    
     func fetchAllTasksToList() -> [TaskModel] {
-        return repository.fetchAllTasksToList()
+        var result: [TaskModel] = []
+        
+        result.append(TaskModel(name: "go to workjhdjshjfhjsdfhsjdhfjsdfhsdjf dhfjdhfjsdhfjsdf dhfsjdfhsjhsjdhfjsdhfsjfhs", description: "по желанию", executionAt: Date(timeIntervalSinceReferenceDate: -123456789.0), priority: .high))
+        result.append(TaskModel(name: "go to", description: "по желаниhsjhfjshfjdhfjdhfdjhfj dhfsdjfhdsjf dfhsjfhsd fsdhfjdshfjsdhfj dhfjdfhsjdfhsjfhsdjfhsdjfhsjfhdsjfhsjdfhsdjfhsdjfhsdjfhsdjfю", executionAt: Date(timeIntervalSinceReferenceDate: -123456789.0), priority: nil))
+        result.append(TaskModel(name: "go to", description: "по желаниhsjhfjshfjdhfjdhfdjhfj dhfsdjfhdsjf dfhsjfhsd fsdhfjdshfjsdhfj dhfjdfhsjdfhsjfhsdjfhsdjfhsjfhdsjfhsjdfhsdjfhsdjfhsdjfhsdjfю", executionAt: Date(timeIntervalSinceReferenceDate: -123456789.0), priority: nil))
+        result.append(TaskModel(name: "go to", description: "по желаниhsjhfjshfjdhfjdhfdjhfj dhfsdjfhdsjf dfhsjfhsd fsdhfjdshfjsdhfj dhfjdfhsjdfhsjfhsdjfhsdjfhsjfhdsjfhsjdfhsdjfhsdjfhsdjfhsdjfю", executionAt: Date(timeIntervalSinceReferenceDate: -123456789.0), priority: nil))
+        result.append(TaskModel(name: "go to", description: "по желаниhsjhfjshfjdhfjdhfdjhfj dhfsdjfhdsjf dfhsjfhsd fsdhfjdshfjsdhfj dhfjdfhsjdfhsjfhsdjfhsdjfhsjfhdsjfhsjdfhsdjfhsdjfhsdjfhsdjfю", executionAt: Date(timeIntervalSinceReferenceDate: -123456789.0), priority: nil))
+        
+        return result
     }
     
     func deleteTaskList(_ task: TaskModel) {
         repository.deleteTaskFromList(task)
     }
     
-    func goToAddTask() {
-        navigation.addTask()
+    func goToAddTask(_ index: Int? = nil) {
+        if let index = index {
+            navigation.addTask(fetchAllTasksToList()[index])
+        }
     }
 }

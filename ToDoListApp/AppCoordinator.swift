@@ -7,8 +7,8 @@
 
 import UIKit
 
-protocol MainNaigator: AnyObject {
-    func addTask()
+protocol MainNavigator: AnyObject {
+    func addTask(_ task: TaskModel)
 }
 
 // MARK: - AppCoordinater
@@ -39,8 +39,13 @@ class AppCoordinator: Coordinator {
 
 // MARK: - MainNaigator
 
-extension AppCoordinator: MainNaigator {
+extension AppCoordinator: MainNavigator {
  
-    func addTask() {
+    func addTask(_ task: TaskModel) {
+        let vc = AddTaskViewController()
+        
+        vc.configure(with: task)
+        navigationController.navigationBar.isHidden = false
+        navigationController.pushViewController(vc, animated: true)
     }
 }
