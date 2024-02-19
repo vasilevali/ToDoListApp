@@ -10,6 +10,5 @@ import Foundation
 struct TaskModel {
     let name: String
     let description: String?
-    let executionAt: Date?
     let priority: TaskPriority?
 }
