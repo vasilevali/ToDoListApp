@@ -114,7 +114,6 @@ extension TaskCell: Configurable {
     func configure(with model: TaskModel) {
         taskLabel.text = model.name
         descriptionLabel.text = model.description
-        dateLabel.text = "\(String(describing: model.executionAt))"
     }
 }
 

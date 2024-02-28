@@ -7,8 +7,8 @@
 
 import UIKit
 
-protocol MainNaigator: AnyObject {
-    func addTask(with model: AddTaskViewController.Model)
+protocol MainNavigator: AnyObject {
+    func addTask(_ task: TaskModel)
 }
 
 // MARK: - AppCoordinater
@@ -17,33 +17,35 @@ class AppCoordinator: Coordinator {
     
     // Dependencies
     var navigationController: UINavigationController
-    var addTaskViewontroller: AddTaskViewController
     var persistenceRepository: IPersistenceRepository
     
     
     // MARK: - Init
     
-    init(navigationController: UINavigationController, addTaskViewontroller: AddTaskViewController, persistenceRepository: IPersistenceRepository) {
+    init(navigationController: UINavigationController, persistenceRepository: IPersistenceRepository) {
         self.navigationController = navigationController
-        self.addTaskViewontroller = addTaskViewontroller
         self.persistenceRepository = persistenceRepository
     }
     
     // MARK: - Coordinater
     
     func start() {
-        let mvm = MainViewModel(repository: PersistenceRepository(persistence: PersistenceService()))
+        let mvm = MainViewModel(navigation: self, repository: PersistenceRepository(persistence: PersistenceService()))
         let mvc = MainViewController(viewModel: mvm)
         navigationController.setViewControllers([mvc], animated: false)
+        navigationController.setNavigationBarHidden(true, animated: true)
     }
 }
 
 // MARK: - MainNaigator
 
-extension AppCoordinator: MainNaigator {
+extension AppCoordinator: MainNavigator {
  
-    func addTask(with model: AddTaskViewController.Model) {
-        let avc = AddTaskViewController()
-        navigationController.present(avc, animated: true)
+    func addTask(_ task: TaskModel) {
+        let vc = AddTaskViewController()
+        
+        vc.configure(with: task)
+        navigationController.navigationBar.isHidden = false
+        navigationController.pushViewController(vc, animated: true)
     }
 }

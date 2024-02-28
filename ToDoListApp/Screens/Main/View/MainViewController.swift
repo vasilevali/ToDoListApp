@@ -21,15 +21,10 @@ final class MainViewController: UIViewController {
     // Dependencies
     var viewModel: MainViewModel
     
-    // addViewModel
-
-    private var cells: [TaskModel] = []
-    
     // UI
     private let titleUserLabel = UILabel()
     private let descriptionLabel = UILabel()
     private let addTaskButton = UIButton()
-    private let delittleButton = UIButton()
     private let informationStackView = UIStackView()
     private let createdTasksView = InformationBlockView()
     private let completedTasksView = InformationBlockView()
@@ -59,15 +54,10 @@ final class MainViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.isHidden = true
-    }
-    
     // MARK: - Private
     
     private func addViews() {
-        [titleUserLabel, descriptionLabel, addTaskButton, delittleButton,  informationStackView, informationStackView, createdTasksView, tasksListTableView].forEach { subview in
+        [titleUserLabel, descriptionLabel, addTaskButton, informationStackView, informationStackView, createdTasksView, tasksListTableView].forEach { subview in
             view.addSubview(subview)
         }
         [createdTasksView, completedTasksView].forEach { subview in
@@ -78,7 +68,6 @@ final class MainViewController: UIViewController {
     private func configureAppearance() {
         view.backgroundColor = .white
         
-        self.cells = configureData()
         // Labels
         titleUserLabel.font = Assets.Fonts.titleFont
         titleUserLabel.textColor = .black
@@ -92,10 +81,6 @@ final class MainViewController: UIViewController {
         addTaskButton.layer.cornerRadius = .mediumRadius
         addTaskButton.backgroundColor = Assets.Colors.mainPinkColor
         addTaskButton.setImage(Assets.Images.plusImage, for: .normal)
-//        delittleButton.addTarget(self, action: #selector(), for: .touchUpInside) добавит функцию удаления при нажатии на кнопку
-        delittleButton.layer.cornerRadius = .mediumRadius
-        delittleButton.backgroundColor = Assets.Colors.mainPinkColor
-        // добавить картинку на удаление ??
         // Information blocks & stack view
         informationStackView.distribution = .fillEqually
         // Table
@@ -128,16 +113,10 @@ final class MainViewController: UIViewController {
             descriptionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -.smallMargin),
             
             addTaskButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: .extraLargeMargin),
-            addTaskButton.centerYAnchor.constraint(equalTo: delittleButton.centerYAnchor),
+            addTaskButton.centerYAnchor.constraint(equalTo: titleUserLabel.centerYAnchor),
             addTaskButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -.extraLargeMargin),
             addTaskButton.heightAnchor.constraint(equalToConstant: Constants.buttonSize),
             addTaskButton.widthAnchor.constraint(equalToConstant: Constants.buttonSize),
-            
-            delittleButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: .extraLargeMargin),
-            delittleButton.trailingAnchor.constraint(equalTo: addTaskButton.trailingAnchor, constant: -.largeMargin),
-            delittleButton.centerYAnchor.constraint(equalTo: titleUserLabel.centerYAnchor),
-            delittleButton.heightAnchor.constraint(equalToConstant: Constants.buttonSize),
-            delittleButton.widthAnchor.constraint(equalToConstant: Constants.buttonSize),
 
             informationStackView.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: .baseMargin),
             informationStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.specificMargin),
@@ -150,27 +129,9 @@ final class MainViewController: UIViewController {
         ])
     }
     
-    private func configureData() -> [TaskModel] {
-        var result: [TaskModel] = []
-        
-        result.append(TaskModel(name: "go to workjhdjshjfhjsdfhsjdhfjsdfhsdjf dhfjdhfjsdhfjsdf dhfsjdfhsjhsjdhfjsdhfsjfhs", description: "по желанию", executionAt: Date(timeIntervalSinceReferenceDate: -123456789.0), priority: .high))
-        result.append(TaskModel(name: "go to", description: "по желаниhsjhfjshfjdhfjdhfdjhfj dhfsdjfhdsjf dfhsjfhsd fsdhfjdshfjsdhfj dhfjdfhsjdfhsjfhsdjfhsdjfhsjfhdsjfhsjdfhsdjfhsdjfhsdjfhsdjfю", executionAt: Date(timeIntervalSinceReferenceDate: -123456789.0), priority: nil))
-        result.append(TaskModel(name: "go to", description: "по желаниhsjhfjshfjdhfjdhfdjhfj dhfsdjfhdsjf dfhsjfhsd fsdhfjdshfjsdhfj dhfjdfhsjdfhsjfhsdjfhsdjfhsjfhdsjfhsjdfhsdjfhsdjfhsdjfhsdjfю", executionAt: Date(timeIntervalSinceReferenceDate: -123456789.0), priority: nil))
-        result.append(TaskModel(name: "go to", description: "по желаниhsjhfjshfjdhfjdhfdjhfj dhfsdjfhdsjf dfhsjfhsd fsdhfjdshfjsdhfj dhfjdfhsjdfhsjfhsdjfhsdjfhsjfhdsjfhsjdfhsdjfhsdjfhsdjfhsdjfю", executionAt: Date(timeIntervalSinceReferenceDate: -123456789.0), priority: nil))
-        result.append(TaskModel(name: "go to", description: "по желаниhsjhfjshfjdhfjdhfdjhfj dhfsdjfhdsjf dfhsjfhsd fsdhfjdshfjsdhfj dhfjdfhsjdfhsjfhsdjfhsdjfhsjfhdsjfhsjdfhsdjfhsdjfhsdjfhsdjfю", executionAt: Date(timeIntervalSinceReferenceDate: -123456789.0), priority: nil))
-        
-        return result
-    }
-
-    
     @objc
     private func addTaskTapped() {
-        let mainViewController = AddTaskViewController()
-        navigationController?.navigationBar.isHidden = false
-        navigationController?.pushViewController(mainViewController, animated: true)
-    }
-    private func deleteTaskTapped() {
-        
+        viewModel.goToAddTask()
     }
 }
 
@@ -182,7 +143,11 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cells.count
+        return viewModel.fetchAllTasksToList().count
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.goToAddTask(indexPath.row)
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -190,7 +155,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        cell.configure(with: cells[indexPath.row])
+        cell.configure(with: viewModel.fetchAllTasksToList()[indexPath.row])
         
         return cell
     }

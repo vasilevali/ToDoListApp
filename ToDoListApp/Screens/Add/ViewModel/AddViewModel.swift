@@ -25,11 +25,11 @@ final class AddViewModel: IAddViewModel {
     }
     
     func fetchAllTasksToList() -> [TaskModel]? {
-        
-        let fetchAllTasksToList = [TaskModel]()
-        if fetchAllTasksToList.isEmpty { return nil }
-        
-        return repository.fetchAllTasksToList()
+         
+         let fetchAllTasksToList = [TaskModel]()
+         if fetchAllTasksToList.isEmpty { return nil }
+         
+         return repository.fetchAllTasksToList()
     }
 }
 

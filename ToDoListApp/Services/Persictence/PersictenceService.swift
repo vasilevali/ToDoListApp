@@ -52,7 +52,6 @@ final class PersistenceService: IPersistenceService {
         let newTask = Task(context: viewContext)
         newTask.name = task.name
         newTask.descriptionTask = newTask.descriptionTask
-        newTask.executionAt = task.executionAt
         newTask.priority = task.priority == nil ? 100 : Int16(task.priority!.rawValue)
         
         saveContext()
@@ -62,7 +61,6 @@ final class PersistenceService: IPersistenceService {
         let deleteTask = Task(context: viewContext)
         deleteTask.name = task.name
         deleteTask.descriptionTask = task.description
-        deleteTask.executionAt = task.executionAt
         deleteTask.priority = task.priority == nil ? 100 : Int16(task.priority!.rawValue)
         
         viewContext.delete(deleteTask)
@@ -79,7 +77,7 @@ final class PersistenceService: IPersistenceService {
         do {
             let tasks = try viewContext.fetch(request)
             let currentTasks = tasks.map {
-                TaskModel(name: $0.name ?? "", description: $0.descriptionTask, executionAt: $0.executionAt, priority: TaskPriority(rawValue: Int($0.priority)))
+                TaskModel(name: $0.name ?? "", description: $0.descriptionTask, priority: TaskPriority(rawValue: Int($0.priority)))
             }
             complition(.success(currentTasks))
         } catch {
