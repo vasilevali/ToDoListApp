@@ -38,9 +38,13 @@ final class MainViewModel: IMainViewModel {
         repository.deleteTaskFromList(task)
     }
     
-    func goToAddTask(_ index: Int? = nil) {
+    func goToEditTask(_ index: Int? = nil) {
         if let index = index {
             navigation.addTask(fetchAllTasksToList()[index])
         }
+    }
+    
+    func goToAddTask(_ task: TaskModel) {
+        navigation.addTask(task)
     }
 }
