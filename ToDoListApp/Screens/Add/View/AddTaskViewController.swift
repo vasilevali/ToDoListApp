@@ -17,6 +17,7 @@ final class AddTaskViewController: UIViewController {
     private let descriptionLabel = UILabel()
     private let descriptionTextView = UITextView()
     private let addTaskButton = UIButton()
+    private let line = UIView()
     
     // MARK: - Lifecycle
     
@@ -30,7 +31,7 @@ final class AddTaskViewController: UIViewController {
     // MARK: - Private
     
     private func addViews() {
-        [addTaskTextView, addTaskButton, descriptionLabel, descriptionTextView].forEach { subview in
+        [addTaskTextView, addTaskButton, descriptionLabel, descriptionTextView, line].forEach { subview in
             view.addSubview(subview)
         }
     }
@@ -48,12 +49,11 @@ final class AddTaskViewController: UIViewController {
         descriptionLabel.text = "Write description"
         descriptionLabel.textColor = .gray
         
-        descriptionTextView.text = "Add description"
-        descriptionTextView.font = Assets.Fonts.smallLightFont
-        
         addTaskButton.backgroundColor = .lightGray
         addTaskButton.layer.cornerRadius = .tinyRadius
         addTaskButton.setTitle("Add task!", for: .normal)
+        
+        line.backgroundColor = .lightGray
         
         let buttonDelete = UIBarButtonItem(title: "Delete", style: UIBarButtonItem.Style.done, target: self, action: #selector(deleteTaskTapped))
         navigationController?.setNavigationBarHidden(false, animated: true)
@@ -61,7 +61,7 @@ final class AddTaskViewController: UIViewController {
     }
     
     private func configureLayout() {
-        [addTaskTextView, addTaskButton, descriptionLabel, descriptionTextView].forEach {
+        [addTaskTextView, addTaskButton, descriptionLabel, descriptionTextView, line].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
         NSLayoutConstraint.activate([
@@ -73,6 +73,11 @@ final class AddTaskViewController: UIViewController {
             descriptionLabel.topAnchor.constraint(equalToSystemSpacingBelow: addTaskTextView.bottomAnchor, multiplier: .smallMargin),
             descriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: .largeMargin),
             descriptionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: .largeMargin),
+            
+            line.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: .tinySpace),
+            line.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: .baseMargin),
+            line.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -.smallMargin),
+            line.heightAnchor.constraint(equalToConstant: 1),
             
             descriptionTextView.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: .smallMargin),
             descriptionTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: .largeMargin),
