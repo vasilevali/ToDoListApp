@@ -78,6 +78,7 @@ final class MainViewController: UIViewController {
         descriptionLabel.text = "You have 1 task"
         // Button
         addTaskButton.addTarget(self, action: #selector(addTaskTapped), for: .touchUpInside)
+        addTaskButton.addTarget(self, action: #selector(addTaskTappedButton), for: .touchUpInside)
         addTaskButton.layer.cornerRadius = .mediumRadius
         addTaskButton.backgroundColor = Assets.Colors.mainPinkColor
         addTaskButton.setImage(Assets.Images.plusImage, for: .normal)
@@ -131,7 +132,14 @@ final class MainViewController: UIViewController {
     
     @objc
     private func addTaskTapped() {
-        viewModel.goToAddTask()
+        viewModel.goToEditTask()
+    }
+    
+    @objc
+    private func addTaskTappedButton() {
+        let vc = AddTaskViewController()
+        navigationController?.navigationBar.isHidden = false
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -147,7 +155,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.goToAddTask(indexPath.row)
+        viewModel.goToEditTask(indexPath.row)
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
